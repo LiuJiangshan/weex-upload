@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "ljs.upload"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "x86"
+            abiFilters "armeabi"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '28.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:exifinterface:28.0.0'
+    implementation 'com.github.liujiangshan.LjsAndroidLib:android:0.4701'
+    implementation 'com.github.liujiangshan.LjsAndroidLib:design:0.4701'
+    implementation 'com.github.liujiangshan.LjsAndroidLib:recyclerview:0.4701'
+    implementation 'com.alibaba:fastjson:1.1.69.android'
+    implementation 'com.taobao.android:weex_sdk:0.17.0@aar'
+    implementation 'com.github.voids:weex-image-crop-picker:1.0.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+}
